@@ -36,10 +36,10 @@
     <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1474302770737-173ee21bab63?ixlib); background-size: cover; background-position: center;"></div>
 <% end %>
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
+  <div class="row" >
+    <div class="col-lg-12 mt-5 mb-3">
       <% if current_user.role == "renter" %>
-        <div class="container bg-light p-4 rounded-lg mt-3">
+        <div class="container bg-light round-shadow">
           <%= simple_form_for([@airplane,@booking], wrapper: :inline_form, html: { class: 'form-inline  justify-content-center' }) do |f| %>
               <div class="form-group">
               <%= f.input :start_time, wrapper_html: { class: 'flex-select' }, as: :datetime, html5: true %>
@@ -47,7 +47,7 @@
               <div class="form-group">
               <%= f.input :end_time, wrapper_html: { class: 'flex-select mx-4' }, as: :datetime, html5: true %>
               </div>
-              <%= f.button :submit, "Book this plane!", class: "btn btn-outline-secondary w-25 mt-3", style: "margin-bottom: 20px;" %>
+              <%= f.button :submit, "Book this plane!", class: "btn btn-outline-secondary w-25 mt-3", style: "margin-bottom: 20px; border-radius:30px;" %>
           <% end %>
         </div>
       <% end %>
@@ -89,3 +89,4 @@
     </div>
   </div>
 </div>
+<%= render "shared/footer" %>
