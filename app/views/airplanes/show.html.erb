@@ -10,12 +10,12 @@
       </ol> -->
       <div class="carousel-inner" style="height: 70vh;">
         <div class="carousel-item active">
-          <%= cl_image_tag @airplane.photos.last.key, class:"d-block w-100", style:"object-fit: cover; object-position: center top;" %>
+          <%= cl_image_tag @airplane.photos.last.key, class:"d-block w-100", style:"object-fit: cover; object-position: center; height: 600px;" %>
         </div>
         <% remaining_photos =  @airplane.photos.limit(@airplane.photos.count - 1) %>
         <% remaining_photos.each do |photo| %>
         <div class="carousel-item">
-          <%= cl_image_tag photo.key, class:"d-block w-100", style:"object-fit: cover; object-position: center top;" %>
+          <%= cl_image_tag photo.key, class:"d-block w-100", style:"object-fit: cover; object-position: center; height: 600px;" %>
         </div>
         <% end %>
       </div>
