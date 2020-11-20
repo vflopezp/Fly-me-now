@@ -20,6 +20,16 @@ class AirplanesController < ApplicationController
   def show
     authorize @airplane
     @booking = Booking.new
+    @markers = []
+    if @airplane.geocoded?
+      plane = {
+        lat: @airplane.latitude,
+        lng: @airplane.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { airplane: @airplane }),
+        image_url: helpers.asset_url('https://www.pikpng.com/pngl/m/2-20957_logo-avion-png-clipart.png')
+      }
+      @markers.push(plane)
+    end
   end
 
   def new
