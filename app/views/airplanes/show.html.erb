@@ -29,63 +29,50 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    <!-- <div class="banner" id="banner-show" style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @airplane.photos.first.key %>); background-size: cover; background-position: center;"></div> -->
   <% else %>
     <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @airplane.photos.first.key %>'); background-size: cover; background-position: center;"></div>
   <% end %>
 <% else %>
     <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1474302770737-173ee21bab63?ixlib); background-size: cover; background-position: center;"></div>
 <% end %>
-  <div class="container">
-    <div class="row" id="grid-show">
-      <div class="col-lg-8">
-        <div class="container bg-light p-4 rounded-lg my-3">
-          <h1><%= @airplane.model %></h1>
-          <p>Model</p>
-        </div>
-        <div class="container bg-light p-4 rounded-lg">
-          <h3>A bit more about this airplane...</h3>
-          <!-- <p>LOCATION PENDING GEOPLOACTAION<#%= @airplane.location %></p> TODO: add the airplane location GEOLOCATING-->
-        </div>
-        <% if policy(Airplane).update? %>
-          <div class="container bg-light p-4 rounded-lg my-3">
-            <h3>Bookings:</h3>
-            <% @airplane.bookings.each do |booking| %>
-              <!-- TODO -->
-              <!-- List airplane's bookings -->
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-      <div class="col-lg-4">
-        <% if current_user.role == "renter" %>
-          <div class="container bg-light p-4 rounded-lg mt-3">
-            <h6>Book this plane!</h6>
-            <%= simple_form_for [@airplane,@booking] do |f| %>
-              <%= f.input :start_time %>
-              <%= f.input :end_time %>
-              <%= f.submit %>
-            <% end %>
-          </div>
-        <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <% if current_user.role == "renter" %>
         <div class="container bg-light p-4 rounded-lg mt-3">
-          <h3>Details</h3>
+          <%= simple_form_for([@airplane,@booking], wrapper: :inline_form, html: { class: 'form-inline  justify-content-center' }) do |f| %>
+              <div class="form-group">
+              <%= f.input :start_time, wrapper_html: { class: 'flex-select' }, as: :datetime, html5: true %>
+              </div>
+              <div class="form-group">
+              <%= f.input :end_time, wrapper_html: { class: 'flex-select mx-4' }, as: :datetime, html5: true %>
+              </div>
+              <%= f.button :submit, "Book this plane!", class: "btn btn-secondary w-25 mt-3", style: "margin-bottom: 20px;" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="container bg-light p-4 rounded-lg my-3">
+        <h1>
+          <%= @airplane.model %>
           <h6>
-            <i class="fas fa-user-friends"><%= @airplane.capacity %></i>
-            <i class="fas fa-euro-sign px-2"><%= @airplane.price %></i>
-            <i class="fas fa-star"><%= @airplane.rating %></i>
+            <i class="fas fa-user-friends"> <%= @airplane.capacity %></i>
+            <i class="fas fa-euro-sign px-2"> <%= @airplane.price %></i>
+            <i class="fas fa-star"> <%= @airplane.rating %></i>
           </h6>
-        </div>
-        <div class="container-fluid justify-content-between bg-light p-4 rounded-lg mt-3">
-          <p>Share</p>
-          <h3>
-            <i class="fab fa-facebook-square"></i>
-            <i class="fab fa-twitter-square"></i>
-            <i class="fab fa-pinterest-square"></i>
-            <i class="fas fa-envelope-square"></i>
-          </h3>
-        </div>
+        </h1>
       </div>
+      <div class="container bg-light p-4 rounded-lg">
+        <h3>A bit more about this airplane...</h3>
+        <p><strong>Address: </strong><%= @airplane.address %></p>
+        <p>This should be the description<%= @airplane.description %></p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <!-- MINI MAP WITH MARKER -->
     </div>
   </div>
 </div>
