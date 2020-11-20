@@ -1,23 +1,25 @@
-<!-- NAVBAR -->
 <%= render "shared/navbar" %>
-<!-- MAIN CONTENT -->
-<div class="container mt-4">
-  <div class="row justify-content-center">
-    <div class="col-lg-10 bg-light p-4 rounded-lg">
-      <h1 class="font-weight-bold">Edit your booking</h1><br>
-      <%= simple_form_for @booking do |f| %>
-        <div class="form-group">
-          <%= f.input :start_time, wrapper_html: { class: 'flex-select' }, as: :datetime, html5: true  %>
-        </div>
-        <div class="form-group">
-          <%= f.input :end_time, wrapper_html: { class: 'flex-select' }, as: :datetime, html5: true  %>
-        </div>
-        <%= f.submit 'Update my booking', class: "btn btn-outline-primary" %>
-        <%= link_to 'Delete Booking', booking_path, method: :delete, class: "btn btn-outline-danger my-2" %>
-        <%= link_to 'Cancel', bookings_path, class: "btn btn-outline-secondary my-2" %>
+<div class="container">
+  <!-- NAVBAR -->
+    <!-- MAIN CONTENT -->
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 bg-light p-4 rounded-lg">
+          <h1 class="font-weight-bold">Edit your booking</h1><br>
+          <%= simple_form_for @booking do |f| %>
+            <div class="form-group">
+              <%= f.input :start_time, wrapper_html: { class: 'flex-select' }, as: :datetime, html5: true  %>
+            </div>
+            <div class="form-group">
+              <%= f.input :end_time, wrapper_html: { class: 'flex-select' }, as: :datetime, html5: true  %>
+            </div>
+            <%= f.submit 'Update my booking', class: "btn btn-outline-primary" %>
+            <%= link_to 'Delete Booking', booking_path, method: :delete, class: "btn btn-outline-danger my-2" %>
+            <%= link_to 'Cancel', bookings_path, class: "btn btn-outline-secondary my-2" %>
 
-      <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
 </div>
 <%= render "shared/footer" %>

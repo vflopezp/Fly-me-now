@@ -1,12 +1,14 @@
-<div class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="navbar navbar-expand-lg navbar-light gradient padding-zero" style="height: 100px;">
   <div class="container-fluid justify-content-between">
-      <%= link_to "🛩️ Fly Me Now", airplanes_path, class:"navbar-brand text-dark pl-4" %>
+    <%= link_to airplanes_path do%>
+      <%= image_tag'logo_white.png', style:"height:60px",class:"pl-4"%>
+    <% end %>
       <form class="form-inline my-2 my-lg-0 col-5 d-flex justify-content-end" action="/airplanes" >
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" value="<%= params[:query] %>">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" value="<%= params[:query] %>" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #6ba8cd;">
         <button class="btn btn-outline-secondary w-25 my-2 my-sm-0" type="submit">Search</button>
         <div class="dropdown my-2 my-sm-0 mx-2">
-          <h3 class="my-0 nav-link dropdown-toggle d-flex align-items-center" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="far fa-user-circle"></i>
+          <h3 class="my-0 nav-link dropdown-toggle d-flex align-items-center text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-user-circle text-white"></i>
           </h3>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% if policy(Airplane).create? %>
