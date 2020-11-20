@@ -36,9 +36,9 @@
 
     </div>
     <form class="col-lg-8 simple_form search justify-content-center p-3 mx-auto" action="/airplanes" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <div class="search-form-control form-group ">
-          <input class="form-control string required round-shadow" type="text" placeholder="What jet you wanna get on today.." name="query" value="<%= params[:query] %>" id="search_query"/>
-          <button name="button" type="submit" class="btn btn-secondary btn-flat" style="width: 120px; border-radius:30px;">
+        <div class="search-form-control form-group  round-shadow">
+          <input class="form-control string required round-shadow" type="text" placeholder="What jet you wanna get on today.." name="query" value="<%= params[:query] %>" id="search_query" />
+          <button name="button" type="submit" class="btn btn-outline-secondary btn-flat" style="width: 120px; border-radius:30px;">
             <i class="fas fa-search"></i> Search
           </button>
         </div>
@@ -120,4 +120,6 @@
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
 </div>
-<%= render "shared/footer" %>
+<div>
+  <%= render "shared/footer" %>
+</div>
