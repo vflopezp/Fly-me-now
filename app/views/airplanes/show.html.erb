@@ -88,8 +88,7 @@
              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         <% else %>
-          <div class="container p-4 my-3 h-100" style="border-radius: 16px;">
-            <%= image_tag "https://images.unsplash.com/photo-1584496423548-ccd72ea469c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", style:"object-fit: cover;" %>
+          <div class="container p-4 my-3 h-100" style="border-radius: 16px; background-image: url('https://images.unsplash.com/photo-1584496423548-ccd72ea469c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'); background-position: center; background-size: cover;">
           </div>
         <% end %>
       </div>
