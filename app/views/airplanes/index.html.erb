@@ -41,7 +41,7 @@
     <form class="col-lg-8 simple_form search justify-content-center p-3 mx-auto" action="/airplanes" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
         <div class="search-form-control form-group  round-shadow">
           <input class="form-control string required round-shadow pr-5" type="text" placeholder="Which jet you wanna get on today.." name="query" value="<%= params[:query] %>" id="search_query" />
-          <button name="button" type="submit" class="btn btn-outline-secondary btn-flat" style="width: 120px; border-radius:30px;">
+          <button name="button" type="submit" class="btn btn-secondary btn-flat" style="width: 120px; border-radius:30px;">
             <i class="fas fa-search"></i> Search
           </button>
         </div>
@@ -55,11 +55,6 @@
             <% if airplane.photos.attached? %>
               <% if airplane.photos.count > 1 %>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                  <!-- <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  </ol> -->
                   <div class="carousel-inner" style="width: 200px; height: 140px; border-radius: 16px; border: none;">
                     <div class="carousel-item active">
                       <%= cl_image_tag airplane.photos.last.key, class:"d-block w-100", style:"height: 140px; object-fit: cover; object-position: center top;" %>
@@ -96,7 +91,6 @@
                 <i class="fas fa-star"> <%= airplane.rating %></i>
               </div>
             </h5>
-            <!-- <p class="card-text"><#%= airplane.model %></p> TODO add location to airplane table GEOCODIN-->
             <p>This is a description</p>
             <div class="p-3 d-flex mr-3">
               <% unless policy(airplane).update? %>
@@ -122,7 +116,9 @@
          data-markers="<%= @markers.to_json %>"
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
+  </div>
 </div>
+<br><br>
 
 <%= render "shared/footer" %>
 
