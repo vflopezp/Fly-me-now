@@ -91,7 +91,6 @@
                 <i class="fas fa-star"> <%= airplane.rating %></i>
               </div>
             </h5>
-            <p>This is a description</p>
             <div class="p-3 d-flex mr-3">
               <% unless policy(airplane).update? %>
                 <%= link_to "Fly me now", airplane_path(airplane.id), class:"btn btn-outline-light" %>
