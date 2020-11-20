@@ -30,10 +30,11 @@
       </a>
     </div>
   <% else %>
-    <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @airplane.photos.first.key %>'); background-size: cover; background-position: center;"></div>
+    <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url('<%= cl_image_path @airplane.photos.first.key %>'); background-size: cover; background-position: center;"></div>
   <% end %>
 <% else %>
-    <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1474302770737-173ee21bab63?ixlib); background-size: cover; background-position: center;"></div>
+    <div class="banner" style="height: 70vh; background-image: linear-gradient(to top,rgba(0,0,0,0.0),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1474302770737-173ee21bab63?ixlib); background-size: cover; background-position: center;"></div>
+<hr style="box-shadow: 23px -26px 28px 51px #FFFF;border-style: hidden;">
 <% end %>
 <div class="container">
   <div class="row" >
