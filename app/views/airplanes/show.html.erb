@@ -1,9 +1,8 @@
-<!-- NAVBAR -->
-<%= render "shared/navbar" %>
+
 <!-- MAIN CONTENT -->
 <% if @airplane.photos.attached? %>
   <% if @airplane.photos.count > 1 %>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="position: relative;">
       <!-- <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -29,14 +28,20 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    <div style="position: absolute; top: 0px; z-index: 2; width: 100vw;"><%= render "shared/navbar" %></div>
   <% else %>
-    <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url('<%= cl_image_path @airplane.photos.first.key %>'); background-size: cover; background-position: center;"></div>
+    <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(255,255,255,0.5), rgba(118,190,239,0.1)), url('<%= cl_image_path @airplane.photos.first.key %>'); background-size: cover; background-position: center;">
+      <!-- NAVBAR -->
+      <%= render "shared/navbar" %>
+    </div>
   <% end %>
 <% else %>
-    <div class="banner" style="height: 70vh; background-image: linear-gradient(to top,rgba(0,0,0,0.0),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1474302770737-173ee21bab63?ixlib); background-size: cover; background-position: center;"></div>
-<hr style="box-shadow: 23px -26px 28px 51px #FFFF;border-style: hidden;">
+    <div class="banner" style="height: 70vh; background-image: linear-gradient(rgba(255,255,255,0.5), rgba(118,190,239,0.1)), url(https://images.unsplash.com/photo-1474302770737-173ee21bab63?ixlib); background-size: cover; background-position: center;">
+      <!-- NAVBAR -->
+      <%= render "shared/navbar" %>
+    </div>
 <% end %>
-<div class="container">
+<div class="container mt-5">
   <div class="row" >
     <div class="col-lg-12 mt-5 mb-3">
       <% if current_user.role == "renter" %>
@@ -48,7 +53,7 @@
               <div class="form-group">
               <%= f.input :end_time, wrapper_html: { class: 'flex-select mx-4' }, as: :datetime, html5: true %>
               </div>
-              <%= f.button :submit, "Book this plane!", class: "btn btn-secondary w-25 mt-3", style: "margin-bottom: 20px; border-radius:30px;" %>
+              <%= f.button :submit, "Book this plane!", class: "btn btn-secondary small-shadow w-25 mt-3", style: "margin-bottom: 20px; border-radius:30px;" %>
           <% end %>
         </div>
       <% end %>
