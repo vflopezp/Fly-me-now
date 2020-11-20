@@ -23,16 +23,18 @@
   color: white;
 }
 
-.btn {
-  width: 100%;
-  border-radius: 8px;
-  padding: auto 5px;
-  font-weight: bold;
-}
 
 #new_user > div.form-actions.btn.btn-light.mb-3 > input {
   padding-top: 0;
   padding-bottom: 0;
 }
-
-
+.form-box{
+  background-color: rgba(0,0,0,0.2);
+  padding:40px;
+  width:500px;
+  border-radius:16px;
+}
+// .but-color{
+//   color:white;
+//   background-color:transparent;
+// }
