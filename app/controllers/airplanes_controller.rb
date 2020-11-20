@@ -12,7 +12,7 @@ class AirplanesController < ApplicationController
         lat: airplane.latitude,
         lng: airplane.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { airplane: airplane }),
-        image_url: helpers.asset_url('https://www.pikpng.com/pngl/m/2-20957_logo-avion-png-clipart.png')
+        image_url: helpers.asset_url('https://previews.123rf.com/images/alextanya123rf/alextanya123rf1605/alextanya123rf160500240/56418255-black-and-white-web-icon-of-plane-airport-icon-plane-shape-plane-icon-shape-label-symbol-graphic-vec.jpg')
       }
     end
   end
@@ -26,7 +26,7 @@ class AirplanesController < ApplicationController
         lat: @airplane.latitude,
         lng: @airplane.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { airplane: @airplane }),
-        image_url: helpers.asset_url('https://www.pikpng.com/pngl/m/2-20957_logo-avion-png-clipart.png')
+        image_url: helpers.asset_url('https://previews.123rf.com/images/alextanya123rf/alextanya123rf1605/alextanya123rf160500240/56418255-black-and-white-web-icon-of-plane-airport-icon-plane-shape-plane-icon-shape-label-symbol-graphic-vec.jpg')
       }
       @markers.push(plane)
     end
