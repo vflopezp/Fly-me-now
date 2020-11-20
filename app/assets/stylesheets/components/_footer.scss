@@ -20,3 +20,10 @@
 .footer-links a:hover {
   opacity: 1;
 }
+
+.footer-center-ry {
+  grid-column: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
